@@ -92,15 +92,19 @@ class criaGrafo{
       }
     }
     public static int[] limpaLinha(String linha, int num_infos){
-        string[] orig_destino;
+        string[] orig_destino_peso;
+        string[] dest_peso;
         int[] orig_destino_int = new int[3];
+
         linha = linha.trim();
-        orig_destino = linha.split(" ");
-        orig_destino_int[0] = int.Parse(orig_destino[0]);
-        orig_destino_int[1] = int.Parse(orig_destino[1]);
+        orig_destino_peso = linha.split(";");
+        dest_peso = orig_destino_peso[1].split(" ");
+        
+        orig_destino_int[0] = int.Parse(orig_destino_peso[0]);
+        orig_destino_int[1] = int.Parse(dest_peso[0]);
 
         if(num_infos==3){
-        orig_destino_int[2] = int.Parse(orig_destino[2]);
+        orig_destino_int[2] = int.Parse(dest_peso[1]);
         }
 
         return orig_destino_int;
