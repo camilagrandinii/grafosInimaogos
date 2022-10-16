@@ -1,14 +1,21 @@
+﻿using System; 
+namespace grafosinimaogos{
+    public class Program{
+    static void Main (string[] agrs){
+      criaGrafo criagrafo = new Grafo();
+      }
+    }
 public class Aresta{
   private int origem;
   private int destino;
   private int peso;
 
-  public Aresta(){
+  Aresta(){
     origem=-1;
     destino=-1;
     peso=0;
   }
-  public Aresta(int orig, int dest, int peso){
+  Aresta(int orig, int dest, int peso){
     this.origem = orig;
     this.destino = dest;
     this.peso = peso;
@@ -35,7 +42,7 @@ public class Aresta{
       Console.WriteLine("\nOrigem: "+origem+"\tDestino: "+destino+"\tPeso: "+peso);
   }
 }
-class ListaRelacoes{
+public class ListaRelacoes{
   private int n_vertices;
   private int n_relacoes;
   
@@ -67,16 +74,17 @@ class ListaRelacoes{
     lista_arestas.Add(aresta);
   }
 }
-public class criaGrafo{
+public class Grafo{
   private ListaRelacoes mapa;
   private const string NOME_GRAFO = "grafosMapa.txt";
 
-  public criaGrafo(){
+  Grafo(){
     readClass();
   }
   // Método que realiza a leitura do arquivo, com base no nome digitado pelo usuário
   public void readClass(){
       string infoGrafoCompleta;
+      string leitura = "";
       int[] infos_grafo = new int[2];
       int[] orig_dest = new int[3];
 
@@ -85,10 +93,9 @@ public class criaGrafo{
       infos_grafo = limpaLinha(infoGrafoCompleta, 2);
       ListaRelacoes mapa = new ListaRelacoes(infos_grafo[0], infos_grafo[1]);
 
-      string content = sr.readLine();
-      for (int i=0; content !=null && i<mapa.get_n_relacoes; i++){
-          content = sr.readLine();
-          orig_dest = limpaLinha(content, 3);
+      for (int i=0; leitura !=null && i<mapa.get_n_relacoes; i++){
+          leitura = sr.readLine();
+          orig_dest = limpaLinha(leitura, 3);
           mapa.newRelacao(orig_dest[0], orig_dest[1], orig_dest[3]);
       }
     }
@@ -111,9 +118,5 @@ public class criaGrafo{
         return orig_destino_int;
     }
 }
-class grafoInimaogos{
-    public void main(String[] args){
-      criaGrafo criaGrafo = new criaGrafo();
-    }
 }
 

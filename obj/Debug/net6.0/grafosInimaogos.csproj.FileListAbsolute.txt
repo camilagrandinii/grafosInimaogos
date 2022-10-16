@@ -1,0 +1,5 @@
+C:\Users\cacag\OneDrive\Área de Trabalho\Camila\1. PUC\4 Semestre\TI IV\GrafoJogo\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.csproj.AssemblyReference.cache
+C:\Users\cacag\OneDrive\Área de Trabalho\Camila\1. PUC\4 Semestre\TI IV\GrafoJogo\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cacag\OneDrive\Área de Trabalho\Camila\1. PUC\4 Semestre\TI IV\GrafoJogo\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.AssemblyInfoInputs.cache
+C:\Users\cacag\OneDrive\Área de Trabalho\Camila\1. PUC\4 Semestre\TI IV\GrafoJogo\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.AssemblyInfo.cs
+C:\Users\cacag\OneDrive\Área de Trabalho\Camila\1. PUC\4 Semestre\TI IV\GrafoJogo\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.csproj.CoreCompileInputs.cache
