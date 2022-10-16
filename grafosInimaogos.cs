@@ -41,12 +41,12 @@ class ListaRelacoes{
   
   private List<Aresta> lista_arestas;
 
-  ListaRelacoes(){
+  public ListaRelacoes(){
     n_vertices=0;
     n_relacoes=0;
     List<Aresta> lista_arestas = new List<Aresta>();
   }
-  ListaRelacoes(int numVert, int numArest){
+  public ListaRelacoes(int numVert, int numArest){
     n_vertices=numVert;
     n_relacoes=numArest;
     List<Aresta> lista_arestas = new List<Aresta>();
@@ -86,7 +86,7 @@ public class criaGrafo{
       ListaRelacoes mapa = new ListaRelacoes(infos_grafo[0], infos_grafo[1]);
 
       string content = sr.readLine();
-      for (int i=0; content !=null && i<mapa.get_n_relacoes; i++){
+      for (int i=0; content !=null && i<mapa.get_n_relacoes(); i++){
           content = sr.readLine();
           orig_dest = limpaLinha(content, 3);
           mapa.newRelacao(orig_dest[0], orig_dest[1], orig_dest[3]);

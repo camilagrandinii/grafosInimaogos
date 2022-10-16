@@ -1,21 +1,14 @@
-﻿using System; 
-namespace grafosinimaogos{
-    public class Program{
-    static void Main (string[] agrs){
-      criaGrafo criagrafo = new Grafo();
-      }
-    }
-public class Aresta{
+﻿public class Aresta{
   private int origem;
   private int destino;
   private int peso;
 
-  Aresta(){
+  public Aresta(){
     origem=-1;
     destino=-1;
     peso=0;
   }
-  Aresta(int orig, int dest, int peso){
+  public Aresta(int orig, int dest, int peso){
     this.origem = orig;
     this.destino = dest;
     this.peso = peso;
@@ -42,18 +35,18 @@ public class Aresta{
       Console.WriteLine("\nOrigem: "+origem+"\tDestino: "+destino+"\tPeso: "+peso);
   }
 }
-public class ListaRelacoes{
+class ListaRelacoes{
   private int n_vertices;
   private int n_relacoes;
   
   private List<Aresta> lista_arestas;
 
-  ListaRelacoes(){
+  public ListaRelacoes(){
     n_vertices=0;
     n_relacoes=0;
     List<Aresta> lista_arestas = new List<Aresta>();
   }
-  ListaRelacoes(int numVert, int numArest){
+  public ListaRelacoes(int numVert, int numArest){
     n_vertices=numVert;
     n_relacoes=numArest;
     List<Aresta> lista_arestas = new List<Aresta>();
@@ -74,17 +67,16 @@ public class ListaRelacoes{
     lista_arestas.Add(aresta);
   }
 }
-public class Grafo{
+public class criaGrafo{
   private ListaRelacoes mapa;
   private const string NOME_GRAFO = "grafosMapa.txt";
 
-  Grafo(){
+  public criaGrafo(){
     readClass();
   }
   // Método que realiza a leitura do arquivo, com base no nome digitado pelo usuário
   public void readClass(){
       string infoGrafoCompleta;
-      string leitura = "";
       int[] infos_grafo = new int[2];
       int[] orig_dest = new int[3];
 
@@ -93,9 +85,10 @@ public class Grafo{
       infos_grafo = limpaLinha(infoGrafoCompleta, 2);
       ListaRelacoes mapa = new ListaRelacoes(infos_grafo[0], infos_grafo[1]);
 
-      for (int i=0; leitura !=null && i<mapa.get_n_relacoes; i++){
-          leitura = sr.readLine();
-          orig_dest = limpaLinha(leitura, 3);
+      string content = sr.readLine();
+      for (int i=0; content !=null && i<mapa.get_n_relacoes(); i++){
+          content = sr.readLine();
+          orig_dest = limpaLinha(content, 3);
           mapa.newRelacao(orig_dest[0], orig_dest[1], orig_dest[3]);
       }
     }
@@ -118,5 +111,9 @@ public class Grafo{
         return orig_destino_int;
     }
 }
+class grafoInimaogos{
+    public void main(String[] args){
+      criaGrafo criaGrafo = new criaGrafo();
+    }
 }
 
