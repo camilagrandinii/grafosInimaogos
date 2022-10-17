@@ -1,10 +1,12 @@
+using System;
+namespace grafosInimaogos{
 public class Aresta{
   private int origem;
   private int destino;
   private int peso;
 
   public Aresta(){
-    origem=-1;
+    this.origem=-1;
     destino=-1;
     peso=0;
   }
@@ -35,7 +37,7 @@ public class Aresta{
       Console.WriteLine("\nOrigem: "+origem+"\tDestino: "+destino+"\tPeso: "+peso);
   }
 }
-class ListaRelacoes{
+public class ListaRelacoes{
   private int n_vertices;
   private int n_relacoes;
   
@@ -69,13 +71,12 @@ class ListaRelacoes{
 }
 public class criaGrafo{
   private ListaRelacoes mapa;
-  private const string NOME_GRAFO = "grafosMapa.txt";
-
+  private const string NOME_GRAFO = "grafoMapa.txt";
   public criaGrafo(){
-    readClass();
+    mapa = readClass();
   }
-  // Método que realiza a leitura do arquivo, com base no nome digitado pelo usuário
-  public void readClass(){
+  // Método que realiza a leitura do arquivo
+  public ListaRelacoes readClass(){
       string infoGrafoCompleta;
       int[] infos_grafo = new int[2];
       int[] orig_dest = new int[3];
@@ -85,35 +86,51 @@ public class criaGrafo{
       infos_grafo = limpaLinha(infoGrafoCompleta, 2);
       ListaRelacoes mapa = new ListaRelacoes(infos_grafo[0], infos_grafo[1]);
 
-      string content = sr.readLine();
+      string content = sr.ReadLine();
+      infos_grafo = limpaLinha(content, 2);
+
       for (int i=0; content !=null && i<mapa.get_n_relacoes(); i++){
-          content = sr.readLine();
+          content = sr.ReadLine();
           orig_dest = limpaLinha(content, 3);
-          mapa.newRelacao(orig_dest[0], orig_dest[1], orig_dest[3]);
+          mapa.newRelacao(orig_dest[0], orig_dest[1], orig_dest[2]);
       }
+      return mapa;
     }
     public static int[] limpaLinha(String linha, int num_infos){
         string[] orig_destino_peso;
         string[] dest_peso;
         int[] orig_destino_int = new int[3];
 
-        linha = linha.trim();
-        orig_destino_peso = linha.split(";");
-        dest_peso = orig_destino_peso[1].split(" ");
-        
-        orig_destino_int[0] = int.Parse(orig_destino_peso[0]);
-        orig_destino_int[1] = int.Parse(dest_peso[0]);
-
         if(num_infos==3){
-        orig_destino_int[2] = int.Parse(dest_peso[1]);
+          linha = linha.Trim();
+          orig_destino_peso = linha.Split(";");
+          dest_peso = orig_destino_peso[1].Split(" ");
+
+          orig_destino_int[0] = int.Parse(orig_destino_peso[0]);
+          orig_destino_int[1] = int.Parse(dest_peso[0]);
+
+          orig_destino_int[2] = int.Parse(dest_peso[dest_peso.Length-1]);
         }
 
+        else if(num_infos==2){
+          orig_destino_peso = linha.Split(" ");
+          orig_destino_int[0] = int.Parse(orig_destino_peso[0]);
+          orig_destino_int[1] = int.Parse(orig_destino_peso[orig_destino_peso.Length-1]);
+        }
+
+        /* 
+        Console.WriteLine("0: " + orig_destino_int[0]);
+        Console.WriteLine("1: " + orig_destino_int[1]);
+        Console.WriteLine("2: " + orig_destino_int[2]); 
+        */
+        
         return orig_destino_int;
     }
 }
-class grafoInimaogos{
-    public void main(String[] args){
-      criaGrafo criaGrafo = new criaGrafo();
-    }
+public class grafosInimaogos{
+      static void Main(String[] args){
+        criaGrafo criaGrafo = new criaGrafo();
+      }
+  }
 }
 
