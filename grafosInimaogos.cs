@@ -46,12 +46,12 @@ public class ListaRelacoes{
   public ListaRelacoes(){
     n_vertices=0;
     n_relacoes=0;
-    List<Aresta> lista_arestas = new List<Aresta>();
+    lista_arestas = new List<Aresta>();
   }
   public ListaRelacoes(int numVert, int numArest){
     n_vertices=numVert;
     n_relacoes=numArest;
-    List<Aresta> lista_arestas = new List<Aresta>();
+    lista_arestas = new List<Aresta>();
   }
   public int get_n_relacoes(){
     return this.n_relacoes;
@@ -65,15 +65,19 @@ public class ListaRelacoes{
     }
   }
   public void newRelacao(int orig, int dest, int peso){
-    Aresta aresta = new Aresta(orig, dest, peso);
-    lista_arestas.Add(aresta);
-  }
+    /* Aresta aresta = new Aresta(orig, dest, peso); */
+    /* aresta.printClass(); */
+    lista_arestas.Add(new Aresta(orig, dest, peso));
+  } 
 }
 public class criaGrafo{
   private ListaRelacoes mapa;
   private const string NOME_GRAFO = "grafoMapa.txt";
   public criaGrafo(){
     mapa = readClass();
+  }
+  public void mostraGrafo(){
+    mapa.mostraRelacoes();
   }
   // Método que realiza a leitura do arquivo
   public ListaRelacoes readClass(){
@@ -83,12 +87,10 @@ public class criaGrafo{
 
       StreamReader sr = new StreamReader(NOME_GRAFO);
       infoGrafoCompleta = sr.ReadLine();
+      string content = infoGrafoCompleta;
       infos_grafo = limpaLinha(infoGrafoCompleta, 2);
       ListaRelacoes mapa = new ListaRelacoes(infos_grafo[0], infos_grafo[1]);
-
-      string content = sr.ReadLine();
-      infos_grafo = limpaLinha(content, 2);
-
+      
       for (int i=0; content !=null && i<mapa.get_n_relacoes(); i++){
           content = sr.ReadLine();
           orig_dest = limpaLinha(content, 3);
@@ -114,15 +116,9 @@ public class criaGrafo{
 
         else if(num_infos==2){
           orig_destino_peso = linha.Split(" ");
-          orig_destino_int[0] = int.Parse(orig_destino_peso[0]);
+          int.TryParse(orig_destino_peso[0],  out orig_destino_int[0]);
           orig_destino_int[1] = int.Parse(orig_destino_peso[orig_destino_peso.Length-1]);
         }
-
-        /* 
-        Console.WriteLine("0: " + orig_destino_int[0]);
-        Console.WriteLine("1: " + orig_destino_int[1]);
-        Console.WriteLine("2: " + orig_destino_int[2]); 
-        */
         
         return orig_destino_int;
     }
@@ -130,6 +126,7 @@ public class criaGrafo{
 public class grafosInimaogos{
       static void Main(String[] args){
         criaGrafo criaGrafo = new criaGrafo();
+        criaGrafo.mostraGrafo();
       }
   }
 }
