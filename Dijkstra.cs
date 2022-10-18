@@ -61,7 +61,7 @@ class GFG {
 	public static void Main()
 	{
 		List<Aresta> lista_arestas = new List<Aresta>();
-		criaGrafo grafo = new criaGrafo();
+		createGraph grafo = new createGraph();
 
 		int[, ] graph = new int[V,V];
 		

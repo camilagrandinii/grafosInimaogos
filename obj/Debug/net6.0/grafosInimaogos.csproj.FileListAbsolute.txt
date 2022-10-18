@@ -3,3 +3,18 @@ C:\Users\cacag\OneDrive\Área de Trabalho\Camila\1. PUC\4 Semestre\TI IV\GrafoJo
 C:\Users\cacag\OneDrive\Área de Trabalho\Camila\1. PUC\4 Semestre\TI IV\GrafoJogo\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.AssemblyInfoInputs.cache
 C:\Users\cacag\OneDrive\Área de Trabalho\Camila\1. PUC\4 Semestre\TI IV\GrafoJogo\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.AssemblyInfo.cs
 C:\Users\cacag\OneDrive\Área de Trabalho\Camila\1. PUC\4 Semestre\TI IV\GrafoJogo\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.csproj.CoreCompileInputs.cache
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\bin\Debug\net6.0\grafosInimaogos.exe
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\bin\Debug\net6.0\grafosInimaogos.deps.json
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\bin\Debug\net6.0\grafosInimaogos.runtimeconfig.json
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\bin\Debug\net6.0\grafosInimaogos.dll
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\bin\Debug\net6.0\grafosInimaogos.pdb
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.csproj.AssemblyReference.cache
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.AssemblyInfoInputs.cache
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.AssemblyInfo.cs
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.csproj.CoreCompileInputs.cache
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.dll
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\obj\Debug\net6.0\refint\grafosInimaogos.dll
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.pdb
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\obj\Debug\net6.0\grafosInimaogos.genruntimeconfig.cache
+C:\Users\cacag\OneDrive\Documents\GitHub\grafosInimaogos\obj\Debug\net6.0\ref\grafosInimaogos.dll

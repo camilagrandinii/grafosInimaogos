@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cacag\\OneDrive\\Área de Trabalho\\Camila\\1. PUC\\4 Semestre\\TI IV\\GrafoJogo\\grafosInimaogos\\grafosInimaogos.csproj",
+      "projectUniqueName": "C:\\Users\\cacag\\OneDrive\\Documents\\GitHub\\grafosInimaogos\\grafosInimaogos.csproj",
       "projectName": "grafosInimaogos",
-      "projectPath": "C:\\Users\\cacag\\OneDrive\\Área de Trabalho\\Camila\\1. PUC\\4 Semestre\\TI IV\\GrafoJogo\\grafosInimaogos\\grafosInimaogos.csproj",
+      "projectPath": "C:\\Users\\cacag\\OneDrive\\Documents\\GitHub\\grafosInimaogos\\grafosInimaogos.csproj",
       "packagesPath": "C:\\Users\\cacag\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cacag\\OneDrive\\Área de Trabalho\\Camila\\1. PUC\\4 Semestre\\TI IV\\GrafoJogo\\grafosInimaogos\\obj\\",
+      "outputPath": "C:\\Users\\cacag\\OneDrive\\Documents\\GitHub\\grafosInimaogos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\cacag\\AppData\\Roaming\\NuGet\\NuGet.Config"

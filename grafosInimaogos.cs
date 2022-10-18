@@ -62,7 +62,7 @@ public class ListaRelacoes{
   public List<Aresta> get_lista_arestas(){
     return this.lista_arestas;
   }
-  public void mostraRelacoes(){
+  public void showRelations(){
     foreach(Aresta ares in lista_arestas){
     ares.printClass();  
     }
@@ -73,16 +73,17 @@ public class ListaRelacoes{
     lista_arestas.Add(new Aresta(orig, dest, peso));
   } 
 }
-public class criaGrafo{
+public class createGraph{
   public ListaRelacoes mapa;
   private const string NOME_GRAFO = "grafoMapa.txt";
-  public criaGrafo(){
+  public createGraph(){
     mapa = readClass();
   }
-  public void mostraGrafo(){
-    mapa.mostraRelacoes();
+  public void showGraph(){
+    mapa.showRelations();
   }
-  // Método que realiza a leitura do arquivo
+
+  // Method that reads the txt file and generates a graph - implemented through a list
   public ListaRelacoes readClass(){
       string infoGrafoCompleta;
       int[] infos_grafo = new int[2];
@@ -91,44 +92,48 @@ public class criaGrafo{
       StreamReader sr = new StreamReader(NOME_GRAFO);
       infoGrafoCompleta = sr.ReadLine();
       string content = infoGrafoCompleta;
-      infos_grafo = limpaLinha(infoGrafoCompleta, 2);
+      infos_grafo = cleanLine(infoGrafoCompleta, 2);
       ListaRelacoes mapa = new ListaRelacoes(infos_grafo[0], infos_grafo[1]);
       
       for (int i=0; content !=null && i<mapa.get_n_relacoes(); i++){
           content = sr.ReadLine();
-          orig_dest = limpaLinha(content, 3);
+          orig_dest = cleanLine(content, 3);
           mapa.newRelation(orig_dest[0], orig_dest[1], orig_dest[2]);
       }
       return mapa;
     }
-    public static int[] limpaLinha(String linha, int num_infos){
+
+    // Class that cleans the line, read from the file
+    public static int[] cleanLine(String linha, int num_infos){
         string[] orig_destino_peso;
         string[] dest_peso;
-        int[] orig_destino_int = new int[3];
+        int[] orig_destino_peso_int = new int[3];
 
         if(num_infos==3){
           linha = linha.Trim();
           orig_destino_peso = linha.Split(";");
           dest_peso = orig_destino_peso[1].Split(" ");
 
-          orig_destino_int[0] = int.Parse(orig_destino_peso[0]);
-          orig_destino_int[1] = int.Parse(dest_peso[0]);
+          orig_destino_peso_int[0] = int.Parse(orig_destino_peso[0]);
+          orig_destino_peso_int[1] = int.Parse(dest_peso[0]);
 
-          orig_destino_int[2] = int.Parse(dest_peso[dest_peso.Length-1]);
+          orig_destino_peso_int[2] = int.Parse(dest_peso[dest_peso.Length-1]);
         }
 
         else if(num_infos==2){
           orig_destino_peso = linha.Split(" ");
-          int.TryParse(orig_destino_peso[0],  out orig_destino_int[0]);
-          orig_destino_int[1] = int.Parse(orig_destino_peso[orig_destino_peso.Length-1]);
+          int.TryParse(orig_destino_peso[0],  out orig_destino_peso_int[0]);
+          orig_destino_peso_int[1] = int.Parse(orig_destino_peso[orig_destino_peso.Length-1]);
         }
         
-        return orig_destino_int;
+        return orig_destino_peso_int;
     }
 }
-public class grafosInimaogos{
-      static void MainCriaGrafo(String[] args){
-        criaGrafo criaGrafo = new criaGrafo();
+
+// Class that calls the method that creates the graph
+public class inimaogosGraph{
+      static void MainCreateGraph(String[] args){
+        createGraph graph = new createGraph();
       }
   }
 }
