@@ -1,7 +1,7 @@
 ﻿using System;
 using grafosInimaogos;
 class GFG {
-	static int V = 35;
+	static int V = 40;
 	int minDistance(int[] dist,
 					bool[] sptSet)
 	{
@@ -16,7 +16,6 @@ class GFG {
 
 		return min_index;
 	}
-
 	void printSolution(int[] dist, int n)
 	{
 		Console.Write("Vertex	 Distance "
@@ -67,7 +66,7 @@ class GFG {
 		int[, ] graph = new int[V,V];
 		
 		int n_relacoes = grafo.mapa.get_n_relacoes();
-		int peso = 0, destino = 0;
+		int peso = 0, destino = 0, origem=0;
 		lista_arestas = grafo.mapa.get_lista_arestas();
 
 		for(int i=0; i<V; i++) {
@@ -76,27 +75,24 @@ class GFG {
 			}
 		}
 
-		for (int i=0; i<V; i++){
-			for (int j=0; j<5; j++){
-				peso = lista_arestas[j].getPeso();
-				destino = lista_arestas[j].getDest();
-				graph[i, destino] = peso;
-			}
+		foreach(Aresta ares in lista_arestas){
+			origem = ares.getOrig() - 1;
+			destino = ares.getDest() - 1;
+			peso = ares.getPeso();
+
+			graph[origem, destino] = peso;
+			graph[destino, origem] = peso;
 		}
 		
-		for(int i=0; i<V; i++) {
-			for(int j=0; j<V; j++) {
+		/* for(int i=1; i<V; i++) {
+			for(int j=1; j<V; j++) {
 				Console.Write(graph[i,j]+" ");
 			}
 			Console.Write("\n");
-		}
-
-		/* foreach(Aresta ares in lista_arestas){
-			graph[ares.origem, ares.destino] = ares.peso;
 		} */
 
 		GFG t = new GFG();
-		t.dijkstra(graph, 1);
+		t.dijkstra(graph, 10);
 	}
 }
 

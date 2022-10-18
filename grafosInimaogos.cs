@@ -67,9 +67,9 @@ public class ListaRelacoes{
     ares.printClass();  
     }
   }
-  public void newRelacao(int orig, int dest, int peso){
-    /* Aresta aresta = new Aresta(orig, dest, peso); */
-    /* aresta.printClass(); */
+  public void newRelation(int orig, int dest, int peso){
+    Aresta aresta = new Aresta(orig, dest, peso);
+    aresta.printClass();
     lista_arestas.Add(new Aresta(orig, dest, peso));
   } 
 }
@@ -97,7 +97,7 @@ public class criaGrafo{
       for (int i=0; content !=null && i<mapa.get_n_relacoes(); i++){
           content = sr.ReadLine();
           orig_dest = limpaLinha(content, 3);
-          mapa.newRelacao(orig_dest[0], orig_dest[1], orig_dest[2]);
+          mapa.newRelation(orig_dest[0], orig_dest[1], orig_dest[2]);
       }
       return mapa;
     }
@@ -129,7 +129,6 @@ public class criaGrafo{
 public class grafosInimaogos{
       static void MainCriaGrafo(String[] args){
         criaGrafo criaGrafo = new criaGrafo();
-        criaGrafo.mostraGrafo();
       }
   }
 }
