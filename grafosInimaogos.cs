@@ -73,6 +73,8 @@ public class ListaRelacoes{
     lista_arestas.Add(new Aresta(orig, dest, peso));
   } 
 }
+
+// Class that creates a lista of relations (graph), based on the info on grafoMapa.txt
 public class createGraph{
   public ListaRelacoes mapa;
   private const string NOME_GRAFO = "grafoMapa.txt";
