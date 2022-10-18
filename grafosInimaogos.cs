@@ -59,6 +59,9 @@ public class ListaRelacoes{
   public int get_n_vertices(){
     return this.n_vertices;
   }
+  public List<Aresta> get_lista_arestas(){
+    return this.lista_arestas;
+  }
   public void mostraRelacoes(){
     foreach(Aresta ares in lista_arestas){
     ares.printClass();  
@@ -71,7 +74,7 @@ public class ListaRelacoes{
   } 
 }
 public class criaGrafo{
-  private ListaRelacoes mapa;
+  public ListaRelacoes mapa;
   private const string NOME_GRAFO = "grafoMapa.txt";
   public criaGrafo(){
     mapa = readClass();
@@ -124,7 +127,7 @@ public class criaGrafo{
     }
 }
 public class grafosInimaogos{
-      static void Main(String[] args){
+      static void MainCriaGrafo(String[] args){
         criaGrafo criaGrafo = new criaGrafo();
         criaGrafo.mostraGrafo();
       }
