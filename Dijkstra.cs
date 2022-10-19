@@ -17,15 +17,20 @@ class GFG {
 	}
 	void printSolution(int[] dist, int n, int origem, int destino)
 	{
-		Console.Write("Vertex	 Distance "
-					+ "from Source\n");
-		for (int i = 0; i < V; i++)
-			if(i == destino)
+		Console.Write("Vertex	 Distance " + "from Source\n");
+		for (int i = 0; i < V; i++) {
+			if(i == destino){
 				Console.Write(i + " \t\t " + dist[i] + "\n");
+			}
+		}
+			
 	}
 
 	void dijkstra(int[, ] graph, int origem, int destino)
 	{
+		origem--;
+		destino--;
+
 		int[] dist = new int[V]; // The output array. dist[i] will hold the shortest distance from origem to i
 
 		bool[] foundShortestPath = new bool[V];
@@ -56,8 +61,40 @@ class GFG {
 		}
 
 		// print the constructed distance array
-		printSolution(dist, V, origem, destino); 
+		printSolution(dist, V, origem, destino);
+
+		getMinVertPath(dist, origem, destino, graph); 
 	}
+
+
+	List<int> getMinVertPath(int[] dist, int origem, int destino, int[, ] graph) {
+		int ultimoVert = destino;
+		int proxVert = destino;
+		int min = int.MaxValue;
+		List<int> vetPath = new List<int>();
+		vetPath.Add(destino+1);
+			 
+			while(dist[ultimoVert] != graph[origem, ultimoVert]) {
+				for(int i = 0; i<V; i++) {
+					if (graph[ultimoVert, i] != 0 && (graph[ultimoVert, i]+dist[i] < min)) {
+						min = graph[ultimoVert, i]+dist[i];
+						proxVert = i;
+					}
+				}
+				vetPath.Add(proxVert+1);
+				ultimoVert = proxVert;
+			}
+
+			vetPath.Add(origem+1);
+
+			for(int i =0; i<vetPath.Count; i++ ) {
+				Console.WriteLine(vetPath[i]);
+			}
+
+		return vetPath;
+	}
+
+
 
 	// Driver Code
 	public static void Main()
@@ -94,6 +131,6 @@ class GFG {
 		} */
 
 		GFG t = new GFG();
-		t.dijkstra(graph, 10, 3);
+		t.dijkstra(graph, 1, 11);
 	}
 }   
