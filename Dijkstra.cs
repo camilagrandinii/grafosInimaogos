@@ -2,59 +2,61 @@
 using grafosInimaogos;
 class GFG {
 	static int V = 40;
-	int minDistance(int[] dist,
-					bool[] sptSet)
+	int minDistance(int[] dist, bool[] foundShortestPath)
 	{
 		// Initialize min value
 		int min = int.MaxValue, min_index = -1;
 
 		for (int v = 0; v < V; v++)
-			if (sptSet[v] == false && dist[v] <= min) {
+			if (foundShortestPath[v] == false && dist[v] <= min) {
 				min = dist[v];
 				min_index = v;
 			}
 
 		return min_index;
 	}
-	void printSolution(int[] dist, int n)
+	void printSolution(int[] dist, int n, int origem, int destino)
 	{
 		Console.Write("Vertex	 Distance "
 					+ "from Source\n");
 		for (int i = 0; i < V; i++)
-			Console.Write(i + " \t\t " + dist[i] + "\n");
+			if(i == destino)
+				Console.Write(i + " \t\t " + dist[i] + "\n");
 	}
 
-	void dijkstra(int[, ] graph, int src)
+	void dijkstra(int[, ] graph, int origem, int destino)
 	{
-		int[] dist = new int[V]; // The output array. dist[i]
-		// will hold the shortest distance from src to i
+		int[] dist = new int[V]; // The output array. dist[i] will hold the shortest distance from origem to i
 
-		bool[] sptSet = new bool[V];
+		bool[] foundShortestPath = new bool[V];
+
+		Aresta[] verticesUntilOrigin = new Aresta[V];
 
 		// Initialize all distances as INFINITE and stpSet[] as false
 		for (int i = 0; i < V; i++) {
 			dist[i] = int.MaxValue;
-			sptSet[i] = false;
+			foundShortestPath[i] = false;
 		}
 
-		dist[src] = 0;
+		dist[origem] = 0;
 
 		// Find shortest path for all vertices
 		for (int count = 0; count < V - 1; count++) {
-			int u = minDistance(dist, sptSet);
+			int u = minDistance(dist, foundShortestPath);
 
-			sptSet[u] = true;
-
+			foundShortestPath[u] = true;
+			
 			// Update dist value of the adjacent vertices of the picked vertex.
-			for (int v = 0; v < V; v++)
-
-				if (!sptSet[v] && graph[u, v] != 0 && dist[u] != int.MaxValue && dist[u] + graph[u, v] < dist[v]) {
+			for (int v = 0; v < V; v++) {
+				if (!foundShortestPath[v] && graph[u, v] != 0 && dist[u] != int.MaxValue && dist[u] + graph[u, v] < dist[v]) {
 					dist[v] = dist[u] + graph[u, v];
 				}
+			}
+				
 		}
 
 		// print the constructed distance array
-		printSolution(dist, V);
+		printSolution(dist, V, origem, destino); 
 	}
 
 	// Driver Code
@@ -92,7 +94,6 @@ class GFG {
 		} */
 
 		GFG t = new GFG();
-		t.dijkstra(graph, 10);
+		t.dijkstra(graph, 10, 3);
 	}
-}
-
+}   
